@@ -4,10 +4,7 @@ import tensorflow as tf
 import tflib as tl
 
 
-ATT_ID = {'eye_color_0': 0, 'eye_color_1': 1, 'eye_color_2': 2, 'eye_color_3': 3, 'eye_color_4': 4,
-          'face_color_0': 5, 'face_color_1': 6, 'face_color_2': 7, 'face_color_3': 8, 'face_color_4': 9,
-          'hair_color_0': 10, 'hair_color_1': 11, 'hair_color_2': 12, 'hair_color_3': 13, 'hair_color_4': 14,
-          'glasses_0': 15, 'glasses_1': 16, 'glasses_2': 17, 'glasses_3': 18, 'glasses_4': 19}
+ATT_ID = {'specs': 0, 'no_specs': 1}
 ID_ATT = {v: k for k, v in ATT_ID.items()}
 
 
@@ -74,21 +71,14 @@ def check_attribute_conflict(att_batch, att_name, att_names):
     idx = att_names.index(att_name)
 
     for att in att_batch:
-        if att_name in ['eye_color_0', 'eye_color_1', 'eye_color_2', 'eye_color_3', 'eye_color_4'] and att[idx] == 1:
-            for n in ['eye_color_0', 'eye_color_1', 'eye_color_2', 'eye_color_3', 'eye_color_4']:
+        if att_name in ['specs'] and att[idx] == 1:
+            for n in ['specs']:
                 if n != att_name:
                     _set(att, 0, n)
-        elif att_name in ['face_color_0', 'face_color_1', 'face_color_2', 'face_color_3', 'face_color_4'] and att[idx] == 1:
-            for n in ['face_color_0', 'face_color_1', 'face_color_2', 'face_color_3', 'face_color_4']:
+        elif att_name in ['specs'] and att[idx] == 1:
+            for n in ['specs']:
                 if n != att_name:
                     _set(att, 0, n)
-        elif att_name in ['hair_color_0', 'hair_color_1', 'hair_color_2', 'hair_color_3', 'hair_color_4'] and att[idx] == 1:
-            for n in ['hair_color_0', 'hair_color_1', 'hair_color_2', 'hair_color_3', 'hair_color_4']:
-                if n != att_name:
-                    _set(att, 0, n)
-        elif att_name in ['glasses_0', 'glasses_1', 'glasses_2', 'glasses_3', 'glasses_4'] and att[idx] == 1:
-            for n in ['glasses_0', 'glasses_1', 'glasses_2', 'glasses_3', 'glasses_4']:
-                if n != att_name:
-                    _set(att, 0, n)
+ 
 
     return att_batch
