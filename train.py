@@ -16,8 +16,7 @@ import module
 # =                                   param                                    =
 # ==============================================================================
 
-default_att_names = ['face_color_0', 'face_color_1', 'face_color_2', 'face_color_3', 'face_color_4',
-                     'hair_color_0', 'hair_color_1', 'hair_color_2', 'hair_color_3', 'hair_color_4']
+default_att_names = ['specs']
 py.arg('--att_names', choices=data.ATT_ID.keys(), nargs='+', default=default_att_names)
 
 py.arg('--img_dir', default='./data/cartoonset10k')
