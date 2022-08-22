@@ -75,8 +75,8 @@ def check_attribute_conflict(att_batch, att_name, att_names):
             for n in ['specs']:
                 if n != att_name:
                     _set(att, 0, n)
-        elif att_name in ['specs'] and att[idx] == 1:
-            for n in ['specs']:
+        elif att_name in ['no_specs'] and att[idx] == 1:
+            for n in ['no_specs']:
                 if n != att_name:
                     _set(att, 0, n)
  
