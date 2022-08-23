@@ -15,17 +15,12 @@ img_lbls = []
 for img_path, img_lbl_file in zip(img_paths, img_lbl_files):
     img_lbl = np.genfromtxt(img_lbl_file, dtype=int, usecols=1, delimiter=',')
 
-    eye_color = img_lbl[10] if img_lbl[10] <= 4 else -1  # use five types
-    face_color = img_lbl[11]if img_lbl[11] <= 4 else -1  # use five types
-    hair_color = img_lbl[12]if img_lbl[12] <= 4 else -1  # use five types
-    glasses = img_lbl[13]if img_lbl[13] <= 4 else -1  # use five types
+    sepcs = img_lbl[0] if img_lbl[0] <= 1 else -1  # use five types
+    no_specs = img_lbl[1]if img_lbl[1] <= 1 else -1  # use five types
 
-    one_hot_mapping = {0: [1, 0, 0, 0, 0],
-                       1: [0, 1, 0, 0, 0],
-                       2: [0, 0, 1, 0, 0],
-                       3: [0, 0, 0, 1, 0],
-                       4: [0, 0, 0, 0, 1],
-                       -1: [0, 0, 0, 0, 0]}
+    one_hot_mapping = {0: [1, 0],
+                       1: [0, 1],
+                       -1: [0, 0]}
     eye_color = one_hot_mapping[eye_color]
     face_color = one_hot_mapping[face_color]
     hair_color = one_hot_mapping[hair_color]
