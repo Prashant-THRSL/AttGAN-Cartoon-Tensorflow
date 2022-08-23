@@ -16,7 +16,7 @@ import module
 # =                                   param                                    =
 # ==============================================================================
 
-default_att_names = ['specs']
+default_att_names = ['specs', 'no_specs']
 py.arg('--att_names', choices=data.ATT_ID.keys(), nargs='+', default=default_att_names)
 
 py.arg('--img_dir', default='./data/cartoonset10k')
