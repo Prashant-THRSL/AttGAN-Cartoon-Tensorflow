@@ -8,25 +8,22 @@ import numpy as np
 # =                                    run                                     =
 # ==============================================================================
 
-img_paths = glob.glob(os.path.join('cartoonset10k', '*.png'))
+img_paths = glob.glob(os.path.join('Specs_NoSpecs', '*.png'))
 img_lbl_files = [img_path.replace('.png', '.csv') for img_path in img_paths]
 
 img_lbls = []
 for img_path, img_lbl_file in zip(img_paths, img_lbl_files):
     img_lbl = np.genfromtxt(img_lbl_file, dtype=int, usecols=1, delimiter=',')
 
-    sepcs = img_lbl[0] if img_lbl[0] <= 1 else -1  # use five types
-    no_specs = img_lbl[1]if img_lbl[1] <= 1 else -1  # use five types
+    glasses = img_lbl[0] if img_lbl[0] <= 1 else -1  
 
     one_hot_mapping = {0: [1, 0],
                        1: [0, 1],
                        -1: [0, 0]}
-    eye_color = one_hot_mapping[eye_color]
-    face_color = one_hot_mapping[face_color]
-    hair_color = one_hot_mapping[hair_color]
+    
     glasses = one_hot_mapping[glasses]
 
-    img_lbl = np.concatenate((eye_color, face_color, hair_color, glasses), axis=0)
+    img_lbl = np.concatenate((glasses), axis=0)
     img_lbls.append(img_lbl)
 
 
