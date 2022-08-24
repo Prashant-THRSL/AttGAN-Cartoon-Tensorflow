@@ -15,7 +15,7 @@ import module
 # =                                   param                                    =
 # ==============================================================================
 
-py.arg('--img_dir', default='./data/cartoonset10k')
+py.arg('--img_dir', default='./data/finalData')
 py.arg('--test_label_path', default='./data/test_label.txt')
 py.arg('--test_int', type=float, default=2)
 
