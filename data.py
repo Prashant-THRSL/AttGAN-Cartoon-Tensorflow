@@ -4,7 +4,7 @@ import tensorflow as tf
 import tflib as tl
 
 
-ATT_ID = {'specs': 0, 'no_specs': 1}
+ATT_ID = {'glasses': 0}
 ID_ATT = {v: k for k, v in ATT_ID.items()}
 
 
@@ -71,14 +71,10 @@ def check_attribute_conflict(att_batch, att_name, att_names):
     idx = att_names.index(att_name)
 
     for att in att_batch:
-        if att_name in ['specs'] and att[idx] == 1:
-            for n in ['specs']:
+        if att_name in ['glasses'] and att[idx] == 1:
+            for n in ['glasses']:
                 if n != att_name:
                     _set(att, 0, n)
-        elif att_name in ['no_specs'] and att[idx] == 1:
-            for n in ['no_specs']:
-                if n != att_name:
-                    _set(att, 0, n)
- 
+
 
     return att_batch
