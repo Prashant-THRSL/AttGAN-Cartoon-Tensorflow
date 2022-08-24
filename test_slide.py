@@ -15,9 +15,9 @@ import module
 # =                                   param                                    =
 # ==============================================================================
 
-py.arg('--img_dir', default='./data/cartoonset10k')
+py.arg('--img_dir', default='./data/finalData')
 py.arg('--test_label_path', default='./data/test_label.txt')
-py.arg('--test_att_name', choices=data.ATT_ID.keys(), default='face_0')
+py.arg('--test_att_name', choices=data.ATT_ID.keys(), default='glasses')
 py.arg('--test_int_min', type=float, default=-2)
 py.arg('--test_int_max', type=float, default=2)
 py.arg('--test_int_step', type=float, default=0.5)
