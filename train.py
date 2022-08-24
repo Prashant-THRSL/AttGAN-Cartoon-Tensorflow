@@ -16,10 +16,10 @@ import module
 # =                                   param                                    =
 # ==============================================================================
 
-default_att_names = ['specs', 'no_specs']
+default_att_names = ['glasses']
 py.arg('--att_names', choices=data.ATT_ID.keys(), nargs='+', default=default_att_names)
 
-py.arg('--img_dir', default='./data/cartoonset10k')
+py.arg('--img_dir', default='./data/finalData')
 py.arg('--train_label_path', default='./data/train_label.txt')
 py.arg('--val_label_path', default='./data/val_label.txt')
 py.arg('--load_size', type=int, default=143)
